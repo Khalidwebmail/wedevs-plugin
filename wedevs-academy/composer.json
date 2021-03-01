@@ -1,0 +1,14 @@
+{
+    "name": "khalid/wedevs-academy",
+    "description": "A tutorial for weDevs Academy",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4":{
+            "WeDevs\\Academy\\": "includes/"
+        },
+        "files": []
+    }
+}
