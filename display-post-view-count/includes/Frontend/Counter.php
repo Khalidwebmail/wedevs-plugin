@@ -11,9 +11,13 @@ class Counter {
 
 	public function dpvc_get_post_view($content) {
 	    $count = get_post_meta( get_the_ID(), 'post_views_count', true );
-	    if( $count > 0)
-	    	return $content .'<p><em>'.$count.'</em>'.' '.' views</p>';
-	    return $content .'0 view';
+	    if( $count > 0) {
+			$tag = apply_filters( 'pb_tag', 'em' );
+			return $content .= sprintf( __( '<h2>Total View : <%s>%s</%s></h2>' ), $tag, $count, $tag );
+		}
+		else{
+			return $content .= sprintf( __( '<h2>Total View : 0' ) );
+		}
 	}
 
 	public function dpvc_set_post_view() {
@@ -22,10 +26,8 @@ class Counter {
 	    if( is_single() ) {
 	    	$post_id = get_the_ID();
 	    	$count = (int) get_post_meta( $post_id, $key, true );
-		    $count++;
+			$count++;
 		    update_post_meta( $post_id, $key, $count );
-
-		    error_log($post_id);
 	    }
 	}
 }

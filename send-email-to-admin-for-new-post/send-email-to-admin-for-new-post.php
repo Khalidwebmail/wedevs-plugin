@@ -10,15 +10,13 @@
    Text domain:     send-email-to-admin-for-new-post
    */
 
-use Send\Admin\Email;
-
 if( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-class Send_Email_To_Admin {
+final class Send_Email_To_Admin {
 
 	const version = '1.0.0';
 
@@ -49,14 +47,13 @@ class Send_Email_To_Admin {
     
     /**
      * define_constant
-     * SETA - Send Email To Admin
      * @return void
      */
     private function define_constant() {
-        define( 'RELEASE_NUMBER', self::version );
-        define( 'FILE', __FILE__ );
-        define( 'PATH', __DIR__ );
-        define( 'URL', plugins_url( '', FILE ) );
+        define( 'SE_RELEASE_NUMBER', self::version );
+        define( 'SE_FILE', __FILE__ );
+        define( 'SE_PATH', __DIR__ );
+        define( 'SE_URL', plugins_url( '', SE_FILE ) );
         // define( 'SETA_ASSETS', SETA_URL . '/asstes');
     }
         
@@ -66,7 +63,7 @@ class Send_Email_To_Admin {
      * @return void
      */
     public function init_plugin() {
-        new Email();
+        new Send\Admin\Email();
 
     }
 
@@ -76,10 +73,10 @@ class Send_Email_To_Admin {
      * @return void
      */
     public function activate() {
-        $install_date = get_option( 'SETA_installed', time() );
+        $install_date = get_option( 'install_date', time() );
         
         if( ! $install_date ) {
-            update_option( 'version', RELEASE_NUMBER );
+            update_option( 'version', SE_RELEASE_NUMBER );
         }
     }
 }

@@ -1,16 +1,17 @@
 <?php
-   /*
-   Plugin Name:     Display Simple Post View Count
+
+/*
+   Plugin Name:     Convert post tile to uppercase
    Plugin URI:      https://example.com/
-   description:     A plugin to simple post count display
+   description:     Convert title to uppercase when post will save
    Version:         1.0.0
    Author:          Khalid Ahmed
    Author URI:      https://example.com/
    License:         GPL2 or later
-   Text domain:     display-simple-post-view-count
+   Text domain:     convert-post-tile-to-uppercase
    */
 
-use Display\Post\View\Frontend\Counter;
+use Post\Title\Admin\Uppercase;
 
 if( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -18,8 +19,7 @@ if( ! defined( 'ABSPATH' ) ) {
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-final class Display_Post_View_Count {
-
+final class Post_Title_Uppercase_Convert {
     const version = '1.0.0';
 
     private function __construct() {
@@ -35,7 +35,7 @@ final class Display_Post_View_Count {
     /**
      * init
      * initialize single instance
-     * @return \Display_Post_View_Count
+     * @return \Post_Title_Uppercase_Convert
      */
     public static function init() {
         static $instance = false;
@@ -49,15 +49,14 @@ final class Display_Post_View_Count {
     
     /**
      * define_constant
-     * DPVC - Display Post View Count
      * @return void
      */
     private function define_constant() {
-        define( 'DPVC_RELEASE_NUMBER', self::version );
-        define( 'DPVC_FILE', __FILE__ );
-        define( 'DPVC_PATH', __DIR__ );
-        define( 'DPVC_URL', plugins_url( '', DPVC_FILE ) );
-        define( 'DPVC_ASSETS', DPVC_URL . '/asstes');
+        define( 'UC_RELEASE_NUMBER', self::version );
+        define( 'UC_FILE', __FILE__ );
+        define( 'UC_PATH', __DIR__ );
+        define( 'UC_URL', plugins_url( '', UC_FILE ) );
+        // define( 'SETA_ASSETS', SETA_URL . '/asstes');
     }
         
     /**
@@ -66,7 +65,8 @@ final class Display_Post_View_Count {
      * @return void
      */
     public function init_plugin() {
-        new Counter();
+        new Uppercase();
+
     }
 
     /**
@@ -75,25 +75,24 @@ final class Display_Post_View_Count {
      * @return void
      */
     public function activate() {
-        $install_date = get_option( 'dpvc_installed', time() );
+        $install_date = get_option( 'install_date', time() );
         
         if( ! $install_date ) {
-            update_option( 'dpvc_version', DPVC_RELEASE_NUMBER );
+            update_option( 'version', UC_RELEASE_NUMBER );
         }
     }
-} 
-
+}
 
 /**
- * show_views_number
+ * title_uppercase
  * initialize the main plugin
- * @return \Display_Post_View_Count
+ * @return \Post_Title_Uppercase_Convert
  */
-function show_views_number() {
-    return Display_Post_View_Count::init();
+function title_uppercase() {
+    return Post_Title_Uppercase_Convert::init();
 }
 
 /**
  * kick of the pluging by calling the function
  */
-show_views_number();
+title_uppercase();
