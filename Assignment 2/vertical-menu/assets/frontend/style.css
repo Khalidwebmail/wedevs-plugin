@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+.scroll {
+    height: 1000px;
+}
+.scroll p {
+    color: #fff;
+    font-size: 1.5rem;
+}
+.btn.book-now {
+    background: #efc468;
+    border-radius: 0;
+    color: #232323;
+    display: inline-block;
+    font-size: 1rem;
+    height: 50px;
+    /* width: 300px; */
+    line-height: 50px;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    transform-origin: bottom right;
+    width: 150px;
+}
+
+#text-body {
+    position: fixed;
+    top: 60%;
+    right: 0;
+    width: 30%;
+}
