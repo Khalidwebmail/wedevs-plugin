@@ -10,8 +10,8 @@ class ShowButton {
     }
 
     public function show_button () {
-        $btn_lablel = 'Vertical Button';
-    
+        $btn_lablel = apply_filters('update_button_label', 'Click me');
+
         echo '
         <a class="btn book-now desktop open-datepicker-popup" href="#" title="Vertical Button">'.$btn_lablel.'</a>
         <div class="scroll"></div>
