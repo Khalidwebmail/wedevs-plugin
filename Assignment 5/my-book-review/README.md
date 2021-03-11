@@ -1,0 +1,1 @@
+A simple plugin where user can create book type post
