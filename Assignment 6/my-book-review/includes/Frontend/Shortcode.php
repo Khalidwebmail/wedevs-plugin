@@ -63,15 +63,17 @@ class Shortcode {
 		</form>
         <?php
 
-        if( $result->have_posts() ) {
-            echo '<ol>';
-            while ( $result->have_posts() ) {
-                $result->the_post();
-                $html = '<li>'.get_the_title().'</li>';
-                echo $html;
-            }
-            echo '</ol>';
-            wp_reset_query();
+        if( empty($result) ) {
+            return;
+        }
+
+        echo '<ol>';
+        while ( $result->have_posts() ) {
+            $result->the_post();
+            printf( '<p><img src="%s" height="150" width="150" /><a href="%s">%s</a></p>', get_the_post_thumbnail_url( get_the_ID(), 'full' ), get_the_permalink(), get_the_title() );
+        }
+        echo '</ol>';
+        wp_reset_query();
         }
     }
 }
