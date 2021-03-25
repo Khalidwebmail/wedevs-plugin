@@ -1,0 +1,20 @@
+{
+    "name": "khalid/my-custom-crud",
+    "description": "A simple custom crud",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Khalidwebmail",
+            "email": "csewebmail@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "My\\Crud\\": "includes/"
+        },
+        "files": ["includes/functions.php"]
+    }
+}

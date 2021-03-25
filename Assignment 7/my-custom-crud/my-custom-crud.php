@@ -1,15 +1,19 @@
 <?php
 
 /*
- * Plugin Name:       WeDevs Academy
+ * Plugin Name:       WeDevs CRUD
  * Plugin URI:        https://khalid.co
- * Description:       A tutorial plugin for weDevs Academy.
+ * Description:       A tutorial plugin for weDevs CRUD.
  * Version:           1.0
  * Author:            Khalid Ahmed
  * Author URI:        https://khalid.co
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       wedevs-crud
+ * Domain Path:       /languages
 */
+
+use My\Crud\Installer;
 
 if( ! defined("ABSPATH")){
     exit;
@@ -20,7 +24,7 @@ require_once __DIR__ . '/vendor/autoload.php';
  * Plugin Class name
  */
 
-final class WeDevs_Academy {
+final class Custom_Crud {
     
     /**
      * Plugin version
@@ -31,14 +35,14 @@ final class WeDevs_Academy {
     {
         $this->define_constants();
 
-        register_activation_hook( __FILE__, [$this, 'activate']);
-        add_action('plugins_loaded', [$this, 'init_plugin']);
+        register_activation_hook( __FILE__, [ $this, 'activate' ] );
+        add_action('plugins_loaded', [ $this, 'init_plugin' ] );
     }
     
     /**
      * initialize singleton instance
      *
-     * @return \WeDevs_Academy
+     * @return \Custom_Crud
      */
     public static function init()
     {
@@ -58,11 +62,11 @@ final class WeDevs_Academy {
      */
     public function define_constants()
     {
-        define('WD_ACADEMY_VERSION', self::version);
-        define("WD_ACADEMY_FILE", __FILE__);
-        define("WD_ACADEMY_PATH", __DIR__);
-        define("WD_ACADEMY_URL", plugins_url('', WD_ACADEMY_FILE));
-        define("WD_ACADEMY_ASSETS", WD_ACADEMY_URL . '/assets');
+        define('WD_CRUD_VERSION', self::version);
+        define("WD_CRUD_FILE", __FILE__);
+        define("WD_CRUD_PATH", __DIR__);
+        define("WD_CRUD_URL", plugins_url('', WD_CRUD_FILE));
+        define("WD_CRUD_ASSETS", WD_CRUD_URL . '/assets');
     }
         
     /**
@@ -73,11 +77,8 @@ final class WeDevs_Academy {
 
     public function init_plugin()
     {
-        if(is_admin()) {
-            new WeDevs\Academy\Admin();
-        }
-        else{
-            new WeDevs\Academy\Frontend();
+        if( is_admin() ) {
+            new \My\Crud\Admin();
         }
     }
 
@@ -88,25 +89,22 @@ final class WeDevs_Academy {
      */
     public function activate() 
     {
-        $installed = get_option("wd_academy_installed");
-        if( ! $installed ) {
-            update_option('wd_academy_installed', time());
-        }
-        update_option('wd_academy_version', WD_ACADEMY_VERSION);
+        $installer = new Installer();
+        $installer->run();
     }
 }
 
 /**
  * iniitalize the main plugin
  *
- * @return \WeDevs_Academy
+ * @return \Custom_Crud
  */
-function wedevs_academy()
+function my_custom_crud()
 {
-    return WeDevs_Academy::init();
+    return Custom_Crud::init();
 }
 
 /**
  * Kick of plugin
  */
-wedevs_academy();
+my_custom_crud();
