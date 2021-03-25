@@ -22,11 +22,11 @@ final class Send_Email_To_Admin {
 
     private function __construct() {
 
-        $this->define_constant();
+        $this->wd_se_define_constant();
 
-        register_activation_hook( __FILE__, [$this, 'activate'] );
+        register_activation_hook( __FILE__, [ $this, 'wd_se_activate' ] );
 
-        add_action( 'init', [$this, 'init_plugin'] );
+        add_action( 'init', [ $this, 'wd_se_init_plugin' ] );
     }
 
         
@@ -35,7 +35,7 @@ final class Send_Email_To_Admin {
      * initialize single instance
      * @return \Display_Post_View_Count
      */
-    public static function init() {
+    public static function wd_se_init() {
         static $instance = false;
 
         if( ! $instance ) {
@@ -49,12 +49,11 @@ final class Send_Email_To_Admin {
      * define_constant
      * @return void
      */
-    private function define_constant() {
-        define( 'SE_RELEASE_NUMBER', self::version );
-        define( 'SE_FILE', __FILE__ );
-        define( 'SE_PATH', __DIR__ );
-        define( 'SE_URL', plugins_url( '', SE_FILE ) );
-        // define( 'SETA_ASSETS', SETA_URL . '/asstes');
+    private function wd_se_define_constant() {
+        define( 'WD_SE_RELEASE_NUMBER', self::version );
+        define( 'WD_SE_FILE', __FILE__ );
+        define( 'WD_SE_PATH', __DIR__ );
+        define( 'WD_SE_URL', plugins_url( '', WD_SE_FILE ) );
     }
         
     /**
@@ -62,35 +61,36 @@ final class Send_Email_To_Admin {
      * initialize plugin
      * @return void
      */
-    public function init_plugin() {
-        new Send\Admin\Email();
-
+    public function wd_se_init_plugin() {
+        if( is_admin() ) {
+            new \Send\Email\Admin\Send_Email();
+        }
     }
 
     /**
-     * activate
-     *  
+     * wd_se_activate
+     * Store install to database
      * @return void
      */
-    public function activate() {
-        $install_date = get_option( 'install_date', time() );
+    public function wd_se_activate() {
+        $install_date = get_option( 'wd_se_install_date', time() );
         
         if( ! $install_date ) {
-            update_option( 'version', SE_RELEASE_NUMBER );
+            update_option( 'version', WD_SE_RELEASE_NUMBER );
         }
     }
 }
 
 /**
- * send_email
+ * wd_se_send_email
  * initialize the main plugin
  * @return \Send_Email_To_Admin
  */
-function send_email() {
-    return Send_Email_To_Admin::init();
+function wd_se_send_email() {
+    return Send_Email_To_Admin::wd_se_init();
 }
 
 /**
  * kick of the pluging by calling the function
  */
-send_email();
+wd_se_send_email();

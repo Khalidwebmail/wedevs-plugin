@@ -14,8 +14,6 @@ class Title_Uppercase {
      * @return $post
      */
     public function wd_tuc_uppercase_title( $post ) {
-
-        error_log($post);
         if( 'post' !== $post[ 'post_type' ] ) {
             return $post;
         }
