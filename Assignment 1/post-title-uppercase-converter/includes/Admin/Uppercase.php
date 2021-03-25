@@ -13,7 +13,7 @@ class Uppercase {
             return $post;
         }
         else{ 
-            $post[ 'post_title' ] = ucwords( $post[ 'post_title']);
+            $post[ 'post_title' ] = ucwords( $post[ 'post_title' ] );
             return apply_filters( 'modify_post_title', $post );
         }
     }

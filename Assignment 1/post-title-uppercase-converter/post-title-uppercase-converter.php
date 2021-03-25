@@ -9,14 +9,13 @@
    Author URI:      https://example.com/
    License:         GPL2 or later
    Text domain:     convert-post-tile-to-uppercase
-   */
+*/
 
-use Post\Title\Admin\Uppercase;
+use Post\Title\Admin\Title_Uppercase;
 
 if( ! defined( 'ABSPATH' ) ) {
     exit;
 }
-
 require_once __DIR__ . '/vendor/autoload.php';
 
 final class Post_Title_Uppercase_Convert {
@@ -24,11 +23,11 @@ final class Post_Title_Uppercase_Convert {
 
     private function __construct() {
 
-        $this->define_constant();
+        $this->wd_tuc_define_constant();
 
-        register_activation_hook( __FILE__, [$this, 'activate'] );
+        register_activation_hook( __FILE__, [ $this, 'wd_tuc_activate' ] );
 
-        add_action( 'init', [$this, 'init_plugin'] );
+        add_action( 'init', [ $this, 'wd_tuc_init_plugin' ] );
     }
 
         
@@ -37,62 +36,61 @@ final class Post_Title_Uppercase_Convert {
      * initialize single instance
      * @return \Post_Title_Uppercase_Convert
      */
-    public static function init() {
+    public static function wd_tuc_init() {
         static $instance = false;
 
         if( ! $instance ) {
             $instance =new self();
         }
-
         return $instance;
     }
     
     /**
-     * define_constant
+     * wd_tuc_define_constant
      * @return void
      */
-    private function define_constant() {
-        define( 'UC_RELEASE_NUMBER', self::version );
-        define( 'UC_FILE', __FILE__ );
-        define( 'UC_PATH', __DIR__ );
-        define( 'UC_URL', plugins_url( '', UC_FILE ) );
-        // define( 'SETA_ASSETS', SETA_URL . '/asstes');
+    private function wd_tuc_define_constant() {
+        define( 'WD_TUC_RELEASE_NUMBER', self::version );
+        define( 'WD_TUC_FILE', __FILE__ );
+        define( 'WD_TUC_PATH', __DIR__ );
+        define( 'WD_TUC_URL', plugins_url( '', WD_TUC_FILE ) );
     }
         
     /**
-     * init_plugin
+     * wd_tuc_init_plugin
      * initialize plugin
      * @return void
      */
-    public function init_plugin() {
-        new Uppercase();
-
+    public function wd_tuc_init_plugin() {
+        if( is_admin() ) {
+            new Title_Uppercase();
+        }
     }
 
     /**
-     * activate
+     * wd_tuc_activate
      *  
      * @return void
      */
-    public function activate() {
-        $install_date = get_option( 'install_date', time() );
+    public function wd_tuc_activate() {
+        $install_date = get_option( 'wd_tuc_install_date', time() );
         
         if( ! $install_date ) {
-            update_option( 'version', UC_RELEASE_NUMBER );
+            update_option( 'version', WD_TUC_RELEASE_NUMBER );
         }
     }
 }
 
 /**
- * title_uppercase
+ * wd_tuc_title_uppercase
  * initialize the main plugin
  * @return \Post_Title_Uppercase_Convert
  */
-function title_uppercase() {
-    return Post_Title_Uppercase_Convert::init();
+function wd_tuc_title_uppercase() {
+    return Post_Title_Uppercase_Convert::wd_tuc_init();
 }
 
 /**
  * kick of the pluging by calling the function
  */
-title_uppercase();
+wd_tuc_title_uppercase();
