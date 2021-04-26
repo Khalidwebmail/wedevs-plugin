@@ -1,0 +1,19 @@
+{
+    "name": "khalid/wd-featured-post",
+    "description": "Display Featured Posts with shortcode",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "authors": [
+    {
+        "name": "Khalidwebmail",
+        "email": "csewebmail@gmail.com"
+    }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+    "psr-4": {
+        "Post\\": "includes/"
+        }
+    }
+}
