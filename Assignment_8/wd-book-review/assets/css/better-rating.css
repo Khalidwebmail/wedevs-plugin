@@ -1,0 +1,13 @@
+/* CSS Document for better rating plugin */
+.rating i{
+    cursor: pointer;
+ }
+ .selected {
+    color: #ff3f00;
+ }
+ .hover {
+    color: darkorange; 
+ }
+.rating i:hover{
+    color: darkorange;
+}

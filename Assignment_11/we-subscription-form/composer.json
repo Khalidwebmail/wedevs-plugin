@@ -1,0 +1,19 @@
+{
+  "name": "khalid/wd-subscription-form",
+  "description": "Display MailChimp form and register email with widget",
+  "type": "wordpress-plugin",
+  "license": "GPLv2",
+  "authors": [
+    {
+      "name": "khalid ahmed",
+      "email": "csewebmail@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Mailchimp\\Subscription\\": "inc/"
+    }
+  }
+}

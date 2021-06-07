@@ -1,0 +1,20 @@
+{
+    "name": "shahadat/contact-form",
+    "description": "A wordpress plugin for create contact list",
+    "type": "wordpress-plugin",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Shahadat Hossain",
+            "email": "shahadat015@yahoo.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Contact\\Form\\": "includes"
+        },
+        "files": ["includes/functions.php"]
+    }
+}

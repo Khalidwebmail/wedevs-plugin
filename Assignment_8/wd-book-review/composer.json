@@ -1,0 +1,20 @@
+{
+  "name": "khalid/wd-book-reviews",
+  "description": "A wordpress plugin for create contact list",
+  "type": "wordpress-plugin",
+  "license": "GPL",
+  "authors": [
+    {
+      "name": "Khalid Ahmed",
+      "email": "csewebmail@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Book\\Reviews\\": "includes"
+    },
+    "files": ["includes/functions.php"]
+  }
+}

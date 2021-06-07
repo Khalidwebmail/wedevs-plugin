@@ -1,0 +1,19 @@
+{
+  "name": "khalid/book-review",
+  "description": "User can handle book type post",
+  "type": "wordpress-plugin",
+  "license": "GPLv2",
+  "authors": [
+    {
+      "name": "Khalidwebmail",
+      "email": "csewebmail@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Book\\Review\\": "includes/"
+    }
+  }
+}

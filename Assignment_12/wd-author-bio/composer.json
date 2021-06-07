@@ -1,0 +1,19 @@
+{
+  "name": "khalid/wd-author-bio",
+  "description": "Display author bio below each post",
+  "type": "wordpress-plugin",
+  "license": "GPLv2",
+  "authors": [
+    {
+      "name": "Khalidwebmail",
+      "email": "csewebmail@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Author\\Bio\\": "includes/"
+    }
+  }
+}

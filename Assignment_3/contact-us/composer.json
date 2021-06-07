@@ -1,0 +1,19 @@
+{
+  "name": "khalid/contact-us",
+  "description": "Create contact form by using shortcode and display to frontend",
+  "type": "wordpress-plugin",
+  "license": "GPLv2",
+  "authors": [
+    {
+      "name": "Khalidwebmail",
+      "email": "csewebmail@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Contact\\Us\\": "includes/"
+    }
+  }
+}

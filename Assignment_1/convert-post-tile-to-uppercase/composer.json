@@ -1,0 +1,19 @@
+{
+  "name": "khalidahmed/post-title-uppercase-converter",
+  "description": "Convert title to uppercase when post will save",
+  "type": "wordpress-plugin",
+  "license": "GPLv2",
+  "authors": [
+    {
+      "name": "Khalidwebmail",
+      "email": "csewebmail@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Post\\Title\\": "includes/"
+    }
+  }
+}

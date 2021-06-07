@@ -1,0 +1,19 @@
+{
+  "name": "khalid/cat-facts",
+  "description": "Add a new dashboard widget and display latest 5 posts title",
+  "type": "wordpress-plugin",
+  "license": "GPLv2",
+  "authors": [
+    {
+      "name": "Khalidwebmail",
+      "email": "csewebmail@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Cat\\Facts\\": "includes/"
+    }
+  }
+}

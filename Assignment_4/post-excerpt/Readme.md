@@ -1,0 +1,3 @@
+Sample shortcode
+
+[latest-excerpt]

@@ -1,0 +1,19 @@
+{
+  "name": "my-book-review-with-taxonomy",
+  "description": "A WordPress plugin to add, edit, manage and review books",
+  "type": "wordpress-plugin",
+  "license": "GPLv2",
+  "authors": [
+    {
+      "name": "Khalid Ahmed",
+      "email": "csewebmail@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Book\\Review\\": "includes/"
+    }
+  }
+}

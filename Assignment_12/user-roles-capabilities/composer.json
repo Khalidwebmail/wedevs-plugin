@@ -1,0 +1,19 @@
+{
+  "name": "khalid/user-roles-capabilities",
+  "description": "Use to maintain user roles and capabilities",
+  "type": "wordpress-plugin",
+  "license": "GPLv2",
+  "authors": [
+    {
+      "name": "Khalidwebmail",
+      "email": "csewebmail@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "User\\Role\\": "includes/"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "rajan/wd-student-info",
+  "description": "Metadata API example",
+  "type": "wordpress-plugin",
+  "license": "GPL",
+  "authors": [
+    {
+      "name": "khalid ahmed",
+      "email": "csewebmail@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "WdStudentInfo\\": "inc/"
+    },
+    "files": [
+      "inc/functions.php"
+    ]
+  }
+}

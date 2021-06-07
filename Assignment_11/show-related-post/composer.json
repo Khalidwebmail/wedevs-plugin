@@ -1,0 +1,19 @@
+{
+  "name": "khalid/wd-show-related-post",
+  "description": "Display related post",
+  "type": "wordpress-plugin",
+  "license": "GPLv2",
+  "authors": [
+    {
+      "name": "Khalidwebmail",
+      "email": "csewebmail@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Related\\Post\\": "includes/"
+    }
+  }
+}

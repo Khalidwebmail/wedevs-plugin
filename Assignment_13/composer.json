@@ -1,0 +1,22 @@
+{
+  "name": "khalid/we-rest-api",
+  "description": "Crud with wordpress rest",
+  "type": "wordpress-plugin",
+  "license": "GPL",
+  "authors": [
+    {
+      "name": "khalid ahmed",
+      "email": "csewebmail@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "WdRestApi\\": "inc/"
+    },
+    "files": [
+      "inc/functions.php"
+    ]
+  }
+}
