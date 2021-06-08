@@ -1,0 +1,19 @@
+{
+  "name": "show-related-product",
+  "description": "A WordPress plugin which use to show related product",
+  "type": "wordpress-plugin",
+  "license": "GPLv2",
+  "authors": [
+    {
+      "name": "Khalid Ahmed",
+      "email": "csewebmail@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Related\\Product\\": "includes/"
+    }
+  }
+}
